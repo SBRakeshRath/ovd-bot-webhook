@@ -1,7 +1,7 @@
 {
   "name": "functions",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "build:watch": "tsc --watch",
     "serve1": "npm run build && firebase emulators:start --only functions",
     "serve": "firebase emulators:start --only functions",
