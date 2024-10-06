@@ -1,18 +1,15 @@
-name: Firebase
+name: Deploy the main branch
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   main:
-    name: Deploy
+    name: Deploy to Firebase
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-
-    - name: Deploy to Firebase
-      uses: afgallo/deploy-firebase-functions@1.1.0
+    - uses: actions/checkout@v2
+    - uses: dheshalj/deploy-firebase-functions@v0.0.4
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        TARGET: default
+        FIREBASE_PROJECT: firebase-project-id
