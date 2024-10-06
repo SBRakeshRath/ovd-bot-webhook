@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Deploy to Firebase
-      uses: afgallo/deploy-firebase-functions@1.0.0
+      uses: afgallo/deploy-firebase-functions@1.1.0
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         TARGET: default
