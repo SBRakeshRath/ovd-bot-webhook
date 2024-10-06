@@ -1,16 +1,18 @@
-name: Deploy the main branch
+name: Firebase
 on:
   push:
     branches:
-      - main
+    - main
 jobs:
   main:
-    name: Deploy to Firebase
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: jsryudev/deploy-firebase-functions@v18.0.1
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Firebase
+      uses: afgallo/deploy-firebase-functions@1.0.0
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        FIREBASE_PROJECT: online-video-downloader-410712
-        FUNCTIONS_DIR: firebase-functions-directory
+        TARGET: default
