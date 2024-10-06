@@ -12,4 +12,4 @@ jobs:
     - uses: dheshalj/deploy-firebase-functions@v0.0.4
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        FIREBASE_PROJECT: firebase-project-id
+        FIREBASE_PROJECT: online-video-downloader-410712
