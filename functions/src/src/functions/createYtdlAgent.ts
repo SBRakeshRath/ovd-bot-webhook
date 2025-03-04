@@ -8,6 +8,7 @@ const username = process.env.PROXY_USERNAME;
 const password = process.env.PROXY_PASSWORD;
 
 const proxyUri = `http://${encodeURIComponent(username)}:${password}@${host}:${port}`;
+console.log(proxyUri);
 
 
 const ytdlAgent = ytdl.createProxyAgent({ uri: proxyUri });
