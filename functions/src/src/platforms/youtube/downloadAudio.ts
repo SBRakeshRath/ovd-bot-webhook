@@ -2,6 +2,7 @@ import { Context } from "telegraf";
 // import ytdl from "ytdl-core";
 
 import ytdl from "@distube/ytdl-core";
+import ytdlAgent from "../../functions/createYtdlAgent";
 
 export default async function downloadAudio(
   link: string,
@@ -15,7 +16,7 @@ export default async function downloadAudio(
     });
     // await ctx.answerCbQuery("Generating Link Please Wait....");
 
-    const res = await ytdl.getInfo(link);
+    const res = await ytdl.getInfo(link,{agent:ytdlAgent});
 
     const downloadLink = res.formats.find(
       (format) => format.audioQuality === quality

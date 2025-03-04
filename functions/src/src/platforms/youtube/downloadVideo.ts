@@ -3,6 +3,7 @@ import { Context } from "telegraf";
 import ytdl from "@distube/ytdl-core";
 import { protos } from "@google-cloud/tasks";
 import createTask from "../../functions/createTask";
+import ytdlAgent from "../../functions/createYtdlAgent";
 
 let downloadUrl: string = "";
 
@@ -19,7 +20,7 @@ export default async function downloadVideo(
       reply_to_message_id: message_id,
     });
 
-    const res = await ytdl.getInfo(link);
+    const res = await ytdl.getInfo(link,{agent:ytdlAgent});
 
     let format =
       res.formats.find(

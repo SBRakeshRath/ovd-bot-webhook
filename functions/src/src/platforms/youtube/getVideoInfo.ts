@@ -1,5 +1,6 @@
 import { Context } from "telegraf";
 import ytdl from "@distube/ytdl-core";
+import ytdlAgent from "../../functions/createYtdlAgent";
 
 export default async function getVideoInfo(
   message_id: number,
@@ -10,7 +11,7 @@ export default async function getVideoInfo(
   try {
     // await ctx.answerCbQuery("Generating Link Please Wait....");
 
-    const info = await ytdl.getInfo(link);
+    const info = await ytdl.getInfo(link,{agent:ytdlAgent});
     const formats = info.formats;
     let instantVideoFormats = formats.filter(
       (format) => format.hasVideo && format.hasAudio
