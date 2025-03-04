@@ -16,7 +16,7 @@ export default async function downloadAudio(
     });
     // await ctx.answerCbQuery("Generating Link Please Wait....");
 
-    const res = await ytdl.getInfo(link,{agent:ytdlAgent});
+    const res = await ytdl.getInfo(link,{agent:ytdlAgent()});
 
     const downloadLink = res.formats.find(
       (format) => format.audioQuality === quality

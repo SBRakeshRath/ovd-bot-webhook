@@ -20,7 +20,7 @@ export default async function downloadVideo(
       reply_to_message_id: message_id,
     });
 
-    const res = await ytdl.getInfo(link,{agent:ytdlAgent});
+    const res = await ytdl.getInfo(link,{agent:ytdlAgent()});
 
     let format =
       res.formats.find(
